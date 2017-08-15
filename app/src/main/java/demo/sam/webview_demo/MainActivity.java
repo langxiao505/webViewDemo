@@ -2,19 +2,16 @@ package demo.sam.webview_demo;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -126,6 +123,20 @@ public class MainActivity extends Activity implements FcPermissionsCallbacks {
             public boolean onLongClick(View view) {
                 final WebView.HitTestResult hitTestResult = webView.getHitTestResult();
                 // 如果是图片类型或者是带有图片链接的类型
+                //增加type类型总结
+//                switch (hitTestResult.getType()) {
+//                    case WebView.HitTestResult.PHONE_TYPE: // 处理拨号
+//                        break;
+//                    case WebView.HitTestResult.EMAIL_TYPE: // 处理Email
+//                        break;
+//                    case WebView.HitTestResult.GEO_TYPE: // TODO
+//                        break;
+//                    case WebView.HitTestResult.SRC_ANCHOR_TYPE: // 超链接
+//                        break;
+//                    case WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE://一个拥有图片为子对象的超链接
+//                        break;
+//                    case WebView.HitTestResult.IMAGE_TYPE: // 处理长按图片的菜单项
+//                        break;
                 if(hitTestResult.getType()== WebView.HitTestResult.IMAGE_TYPE||
                         hitTestResult.getType()== WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE){
                     // 弹出保存图片的对话框
